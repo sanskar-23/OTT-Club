@@ -28,8 +28,6 @@ const DetailsBanner = ({ video, crew }) => {
   const writer = crew?.filter(
     (f) => f.job === "Screenplay" || f.job === "Story" || f.job === "Writer"
   );
-  console.log("The director array is ", director);
-  console.log("The writer array is ", writer);
 
   const toHoursAndMinutes = (totalMinutes) => {
     const hours = Math.floor(totalMinutes / 60);
