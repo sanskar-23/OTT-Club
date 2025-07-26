@@ -20,6 +20,13 @@ const DetailsBanner = ({ video, crew }) => {
 
   const _genres = data?.genres?.map((g) => g.id);
 
+  const director = crew?.filter((f) => f.job === "Director");
+  const writer = crew?.filter(
+    (f) => f.job === "Screenplay" || f.job === "Story" || f.job === "Writer"
+  );
+  console.log("The director array is ", director);
+  console.log("The writer array is ", writer);
+
   const toHoursAndMinutes = (totalMinutes) => {
     const hours = Math.floor(totalMinutes / 60);
     const minutes = totalMinutes % 60;
@@ -94,6 +101,43 @@ const DetailsBanner = ({ video, crew }) => {
                         </div>
                       )}
                     </div>
+                    {director?.length > 0 && (
+                      <div className="info">
+                        <span className="text bold">Director: </span>
+                        <span className="text">
+                          {director?.map((d, i) => (
+                            <span key={i}>
+                              {d?.name} {director.length - 1 !== i && ", "}
+                            </span>
+                          ))}
+                        </span>
+                      </div>
+                    )}
+                    {writer?.length > 0 && (
+                      <div className="info">
+                        <span className="text bold">Writer: </span>
+                        <span className="text">
+                          {writer?.map((w, i) => (
+                            <span key={i}>
+                              {w?.name} {writer.length - 1 !== i && ", "}
+                            </span>
+                          ))}
+                        </span>
+                      </div>
+                    )}
+                    {data?.created_by?.length > 0 && (
+                      <div className="info">
+                        <span className="text bold">Created By: </span>
+                        <span className="text">
+                          {data.created_by?.map((c, i) => (
+                            <span key={i}>
+                              {c?.name}{" "}
+                              {data.created_by.length - 1 !== i && ", "}
+                            </span>
+                          ))}
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
               </ContentWrapper>
