@@ -4,7 +4,7 @@ import "./style.scss";
 
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import { PlayIcon } from "../Playbtn";
-import VideoPopup from "../../../components/videoPopup/VideoPopup";
+import VideoPopUp from "../../../components/videoPopup/VideoPopUp";
 import Img from "../../../components/lazyLoadImage/Img";
 
 const VideosSection = ({ data, loading }) => {
@@ -55,7 +55,7 @@ const VideosSection = ({ data, loading }) => {
           </div>
         )}
       </ContentWrapper>
-      <VideoPopup
+      <VideoPopUp
         show={show}
         setShow={setShow}
         videoId={videoId}
